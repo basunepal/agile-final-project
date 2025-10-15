@@ -1,53 +1,65 @@
----
 name: User Story
-about: Describe a new feature or piece of functionality from a user's perspective.
+description: Define a new feature for the product catalog.
 title: "[STORY] As a <user>, I need <goal>, so that <reason>"
-labels: enhancement
-assignees: ''
----
+labels: ["enhancement"]
+assignees: []
 
-## 📝 User Story
-*(Use the standard User Story format to define what needs to be built.)*
+body:
+  - type: markdown
+    attributes:
+      value: |
+        # 📝 User Story & Acceptance Criteria
+        *(Fill out the fields below to create a complete, ready-to-work-on User Story.)*
 
-**As a** [Role/Persona/User Type]
-**I need to** [Goal/Action]
-**So that** [Value/Reason]
+  - type: textarea
+    id: user_story
+    attributes:
+      label: "User Story"
+      description: "Define the story using the standard format (As a... I need... So that...)"
+      placeholder: |
+        As an Administrator,
+        I need to create a new product in the catalog,
+        So that customers can purchase it.
+    validations:
+      required: true
 
----
+  - type: textarea
+    id: acceptance_criteria
+    attributes:
+      label: "Acceptance Criteria (Gherkin)"
+      description: "Define the success conditions using Given... When... Then... syntax."
+      placeholder: |
+        GIVEN I am an administrator
+        WHEN I provide valid product details
+        THEN a new product is added to the catalog and I receive a success confirmation.
+    validations:
+      required: true
 
-## ✅ Acceptance Criteria
-*(Define the success conditions for this story using the Gherkin syntax: Given, When, Then. The story is not done until ALL criteria are met.)*
+  - type: dropdown
+    id: story_estimate
+    attributes:
+      label: "Story Estimate (Story Points)"
+      description: "The Development Team selects the estimated effort."
+      options:
+        - None
+        - 1 Point
+        - 2 Points
+        - 3 Points
+        - 5 Points
+        - 8 Points
+      default: 0
+    validations:
+      required: true
 
-**GIVEN** [Context or initial state]
-**WHEN** [An action is performed]
-**THEN** [A verifiable outcome/result is achieved]
-
-**GIVEN** [Another context]
-**WHEN** [Another action]
-**THEN** [Another verifiable outcome]
-
----
-
-## 🏷️ Agile Attributes
-
-### Story Estimate (Story Points)
-*(The Development Team will fill this in during Backlog Refinement/Sprint Planning.)*
-- [ ] 1 Point
-- [ ] 2 Points
-- [ ] 3 Points
-- [ ] 5 Points
-- [ ] 8 Points
-
-### INVEST Criteria Check
-*(A checklist to ensure a high-quality story. A good story should be: Independent, Negotiable, Valuable, Estimable, Small, and Testable)*
-- [ ] Independent
-- [ ] Negotiable
-- [ ] Valuable
-- [ ] Estimable
-- [ ] Small
-- [ ] Testable
-
----
-
-## 🔗 Related Items
-*Dependencies, technical notes, or links to Epics/Designs/Spikes.*
+  - type: checkboxes
+    id: invest_check
+    attributes:
+      label: "INVEST Criteria Check"
+      description: "A checklist for story quality (Independent, Negotiable, Valuable, Estimable, Small, Testable)."
+      options:
+        - label: Independent
+        - label: Negotiable
+        - label: Valuable
+        - label: Estimable
+        - label: Small
+        - label: Testable
